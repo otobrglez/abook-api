@@ -1,4 +1,6 @@
 ENV["RACK_ENV"] ||= ENV["ABOOK_ENV"] ||= 'development'
+ENV["RAILS_ENV"] = ENV["RACK_ENV"]
+
 
 ABOOK_ENV = ENV["RACK_ENV"].to_sym
 
@@ -16,10 +18,13 @@ ABOOK_PATH = Pathname.pwd
 
 # Require the magical Grape framework
 require 'grape'
+require 'grape-swagger'
 
 # Lets use active_support to make our life a bit easier
-require 'active_support'
 require 'active_record'
+require 'active_support'
+require 'hashie-forbidden_attributes'
+
 
 # This are path for dependencies. Auto-loading simplifies life. :)
 ActiveSupport::Dependencies.autoload_paths += %W{
@@ -34,4 +39,8 @@ ActiveRecord::Base.configurations = YAML.load(
             ABOOK_PATH.join('./config/database.yml'))).result)
 
 # You want some logger here. So.. and that.
-ActiveRecord::Base.logger = ActiveSupport::Logger.new(STDOUT)
+
+if ABOOK_ENV != :test
+  ActiveRecord::Base.logger = Logger.new(STDOUT)
+# ActiveSupport::Logger.new(STDOUT)
+end

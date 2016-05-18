@@ -6,7 +6,10 @@ $LOAD_PATH << File.join(PROJECT_ROOT, './')
 require 'boot.rb'
 require 'rspec'
 
+
 Dir[ABOOK_PATH.join('spec/support/**/*.rb')].each { |f| require f}
+
+ActiveRecord::Base.establish_connection ABOOK_ENV
 
 RSpec.configure do |config|
 	config.expect_with :rspec do |expectations|

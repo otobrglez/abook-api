@@ -6,10 +6,8 @@ default: &default
 
 development:
   <<: *default
+  database: ab_development
 
 test:
   <<: *default
-
-production:
-  <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
+  database: ab_test

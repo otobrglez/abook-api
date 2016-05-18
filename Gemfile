@@ -3,9 +3,12 @@ source 'https://rubygems.org'
 ruby '2.3.1'
 
 gem 'grape'
+gem 'grape-swagger'
 gem 'puma'
 gem 'pg'
 gem 'activerecord', '~> 4.2'
+gem 'hashie-forbidden_attributes'
+gem 'rack-cors'
 
 
 group :test do
