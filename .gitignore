@@ -1,3 +1,7 @@
+/db/pg-data/*
+!/db/pg-data/.keep
+
+
 *.gem
 *.rbc
 /.config

@@ -1,3 +1,2 @@
-class Person
-
+class Person < ActiveRecord::Base
 end

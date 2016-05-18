@@ -1,6 +1,6 @@
 ENV["RACK_ENV"] ||= ENV["ABOOK_ENV"] ||= 'development'
 
-ABOOK_ENV = ENV["RACK_ENV"]
+ABOOK_ENV = ENV["RACK_ENV"].to_sym
 
 # Ruby standard lib dependencies
 require 'bundler'
