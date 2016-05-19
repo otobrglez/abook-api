@@ -1,13 +1,21 @@
 require 'spec_helper'
 
+# Now this. This are specs.
 RSpec.describe API do
 
+  # We are using rack-test
+  # To use it you have to create "app" variable
+  # let() will create "app" when needed.
   let(:app) { API }
 
+  # This should be a bit more advanced. "database_cleaner" comes in mind.
   before :all do
     Person.delete_all
-    create :person
+    create :person # Using factory_girl here to create new Person
   end
+
+  # Now tests,...
+  # I belive they are self explenatory :D
 
   describe 'GET /people' do
     before { get '/people' }

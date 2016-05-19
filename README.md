@@ -31,5 +31,5 @@ rackup # or just "puma"
 - https://github.com/ruby-grape/grape
 
 ## License
-```MIT```
+MIT
 
